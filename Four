@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int factorial(int n) {
+    if (n == 0 || n == 1) return 1;
+    return n * factorial(n - 1);
+}
+
+int fibonacci(int n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int power(int base, int exp) {
+    if (exp == 0) return 1;
+    return base * power(base, exp - 1);
+}
+
+int sum(int n) {
+    if (n == 0) return 0;
+    return n + sum(n - 1);
+}
+
+int countDigits(int n) {
+    if (n == 0) return 0;
+    return 1 + countDigits(n / 10);
+}
+
+int reverseNumber(int n, int rev = 0) {
+    if (n == 0) return rev;
+    return reverseNumber(n / 10, rev * 10 + n % 10);
+}
+
+bool isPalindrome(string s, int start, int end) {
+    if (start >= end) return true;
+    if (s[start] != s[end]) return false;
+    return isPalindrome(s, start + 1, end - 1);
+}
+
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
+
+void printArray(int arr[], int n) {
+    if (n == 0) return;
+    printArray(arr, n - 1);
+    cout << arr[n - 1] << " ";
+}
+
+int main() {
+    cout << "Factorial of 5: " << factorial(5) << endl;
+    cout << "Fibonacci of 7: " << fibonacci(7) << endl;
+    cout << "Power 2^5: " << power(2, 5) << endl;
+    cout << "Sum of 1 to 5: " << sum(5) << endl;
+    cout << "Count digits in 12345: " << countDigits(12345) << endl;
+    cout << "Reverse of 12345: " << reverseNumber(12345) << endl;
+    cout << "Is 'racecar' palindrome: " << isPalindrome("racecar", 0, 6) << endl;
+    cout << "GCD of 48 and 18: " << gcd(48, 18) << endl;
+    
+    int arr[] = {1, 2, 3, 4, 5};
+    cout << "Array: ";
+    printArray(arr, 5);
+    cout << endl;
+    
+    return 0;
+}
